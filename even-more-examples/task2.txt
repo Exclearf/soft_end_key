@@ -1,0 +1,12 @@
+import requests
+from bs4 import BeautifulSoup
+
+def fetch_apartment_prices(url):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    prices = [div.text for div in soup.find_all('div', class_='price')]
+    prices_numeric = [int(price.strip('$').replace(',', '')) for price in prices if price.strip('$').replace(',', '').isdigit()]
+    return len(prices), min(prices_numeric), max(prices_numeric)
+
+num_ads, lowest_price, highest_price = fetch_apartment_prices('https://example.com/apartments')
+print(f"Number of ads: {num_ads}, Lowest price: {lowest_price}, Highest price: {highest_price}")
