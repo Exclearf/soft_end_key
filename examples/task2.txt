@@ -1,0 +1,15 @@
+from bs4 import BeautifulSoup
+
+# Load and parse the HTML file
+with open('phases_soften.html', 'r') as file:
+    soup = BeautifulSoup(file, 'html.parser')
+
+# Assuming the titles are in <h2> tags and the first paragraph after each <h2> tag is what we need
+phase_titles = soup.find_all('h2')
+
+for title in phase_titles:
+    print(title.text.strip())  # Print the phase title
+    # Find the next paragraph after the title
+    first_paragraph = title.find_next('p')
+    print(first_paragraph.text.strip())  # Print the first paragraph text
+    print("\n")  # Adding a newline for better readability between phases

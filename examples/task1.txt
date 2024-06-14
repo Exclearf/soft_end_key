@@ -1,0 +1,14 @@
+text = "If you need to Link to some research from a website or on social media, We want to encourage you to .Link to a RePEc page instead of directly to the full text."
+
+# Split the text into words using space as the separator
+words = text.split()
+
+# Initialize a counter
+capital_words_count = 0
+
+# Loop through each word and check if the first character is uppercase
+for word in words:
+    if word[0].isupper():
+        capital_words_count += 1
+
+print("Number of words starting with a capital letter:", capital_words_count)

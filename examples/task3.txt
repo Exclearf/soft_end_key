@@ -1,0 +1,30 @@
+import pandas as pd
+
+# Load the CSV data into a DataFrame
+file_path = '/mnt/data/covid_19_clean.csv'
+data = pd.read_csv(file_path)
+
+# Display the first few rows of the dataframe and its columns to understand its structure
+data.head(), data.columns
+
+
+
+
+
+
+# Filter data for the specific date: June 1, 2020
+data_june_1 = data[data['Date'] == '2020-06-01']
+
+# Task 1: Calculate the total number of deaths on June 1, 2020
+total_deaths_june_1 = data_june_1['Deaths'].sum()
+
+# Task 2: Find the mean of confirmed cases on June 1, 2020
+mean_confirmed_june_1 = data_june_1['Confirmed'].mean()
+
+# Filter Western Pacific countries with confirmed cases greater than the mean on June 1, 2020
+western_pacific_above_mean = data_june_1[(data_june_1['WHO Region'] == 'Western Pacific') & (data_june_1['Confirmed'] > mean_confirmed_june_1)]
+
+# Extract the list of such countries
+western_pacific_countries = western_pacific_above_mean['Country/Region'].unique()
+
+total_deaths_june_1, mean_confirmed_june_1, western_pacific_countries

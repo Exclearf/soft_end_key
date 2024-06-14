@@ -1,0 +1,7 @@
+https://pandas.pydata.org/pandas-docs/version/1.4/pandas.pdf
+
+https://www.tutorialspoint.com/unittest_framework/unittest_framework_tutorial.pdf
+
+https://readthedocs.org/projects/beautiful-soup-4/downloads/pdf/latest/
+
+https://cfm.ehu.es/ricardo/docs/python/Learning_Python.pdf
